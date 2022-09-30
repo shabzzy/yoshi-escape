@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* * {
+        padding: 0;
+        margin: 0;
+      } */
+    </style>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="1345"
+      height="640"
+      style="background-color: black"
+    ></canvas>
+  </body>
+  <script>
+    let x = 10;
+    let y = 290;
+    let ex = 1240;
+    let ey = 280;
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+    let enemy = document.getElementById("canvas");
+    let cont = enemy.getContext("2d");
+
+    // context.moveTo(0,0)
+    // context.lineTo(200,500)
+    // // stroke is to draw a line
+    // context.stroke()
+    // the first 10 and the second is for the position throug y and x axis
+    //  context.fillStyle='green'
+    function start() {
+      //  context.fillRect(x,y,50,50)
+      let img = new Image();
+      img.src = "./images/improvedanime.png";
+      img.onload = () => context.drawImage(img, x, y, 100, 100);
+    }
+    start();
+    // for text
+    //context.fillText('hello world',100,100)
+    //let canv = document.getElementById('canvas')
+    //let context2 = canv.getContext('2d')
+    //context2.fillRect(100,100,50,100)
+
+    window.onkeydown = function (e) {
+      // alert(e.keyCode)
+      if (e.keyCode == 39 && x !== 1300) {
+        x = x + 10;
+        console.log("done");
+      }
+      if (e.keyCode == 40) {
+        y = y + 10;
+      }
+      if (e.keyCode == 37 && x !== 0) {
+        x = x - 10;
+      }
+      if (e.keyCode == 38) {
+        y = y - 10;
+      }
+
+      context.clearRect(0, 0, 1345, 640);
+      // if (x==1340) {
+      //   x=0
+      // }
+      if (x == 1270) {
+        x = 0;
+      } else if (x == 0) {
+        x = 1270;
+      }
+      if (y == -50) {
+        y = 610;
+      } else if (y == 610) {
+        y = -50;
+      }
+
+      start();
+      enemys();
+    };
+    function enemys() {
+      let imgs = new Image();
+      imgs.src = "./images/anim-project-removebg-preview.png";
+      imgs.onload = () => cont.drawImage(imgs, ex, ey, 150, 150);
+    }
+    enemys();
+    //   function Image(img1) {
+    //     this.img1 = img1;
+    //     // this.img2 = img2;
+    //     // this.img3 = img3;
+    //     // this.getSummary = function () {
+    //     //  return `${this.title} was written by ${this.author} in ${this.year}`;
+    //     // };
+    //   }
+    //   //instatiate an object
+    //   let i = new Image();
+
+    //       console.log(book5.getSummary());
+    //
+  </script>
+</html>
