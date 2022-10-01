@@ -30,77 +30,115 @@
     let enemy = document.getElementById("canvas");
     let cont = enemy.getContext("2d");
 
-    // context.moveTo(0,0)
-    // context.lineTo(200,500)
-    // // stroke is to draw a line
-    // context.stroke()
-    // the first 10 and the second is for the position throug y and x axis
-    //  context.fillStyle='green'
     function start() {
       //  context.fillRect(x,y,50,50)
       let img = new Image();
       img.src = "./images/improvedanime.png";
       img.onload = () => context.drawImage(img, x, y, 100, 100);
+      window.onkeydown = function (e) {
+        // alert(e.keyCode)
+        if (e.keyCode == 39 && x !== 1300) {
+          x = x + 10;
+          console.log("done");
+        }
+        if (e.keyCode == 40) {
+          y = y + 10;
+        }
+        if (e.keyCode == 37 && x !== 0) {
+          x = x - 10;
+        }
+        if (e.keyCode == 38) {
+          y = y - 10;
+        }
+
+        context.clearRect(0, 0, 1345, 640);
+        // if (x==1340) {
+        //   x=0
+        // }
+        if (x == 1270) {
+          x = 0;
+        } else if (x == 0) {
+          x = 1270;
+        }
+        if (y == -50) {
+          y = 610;
+        } else if (y == 610) {
+          y = -50;
+        }
+
+        context.drawImage(img, x, y, 100, 100);
+        // enemys();
+      };
     }
     start();
-    // for text
-    //context.fillText('hello world',100,100)
-    //let canv = document.getElementById('canvas')
-    //let context2 = canv.getContext('2d')
-    //context2.fillRect(100,100,50,100)
 
-    window.onkeydown = function (e) {
-      // alert(e.keyCode)
-      if (e.keyCode == 39 && x !== 1300) {
-        x = x + 10;
-        console.log("done");
-      }
-      if (e.keyCode == 40) {
-        y = y + 10;
-      }
-      if (e.keyCode == 37 && x !== 0) {
-        x = x - 10;
-      }
-      if (e.keyCode == 38) {
-        y = y - 10;
-      }
-
-      context.clearRect(0, 0, 1345, 640);
-      // if (x==1340) {
-      //   x=0
-      // }
-      if (x == 1270) {
-        x = 0;
-      } else if (x == 0) {
-        x = 1270;
-      }
-      if (y == -50) {
-        y = 610;
-      } else if (y == 610) {
-        y = -50;
+    class enemys {
+      constructor(ex, ey, scale) {
+        this.scale = scale;
+        this.ex = ex;
+        this.ey = ey;
+        this.eneimage1 = new Image();
+        this.eneimage1.src = "./images/anim-project-removebg-preview.png";
+        this.eneimage2 = new Image();
+        this.eneimage2.src = "./images/anim-project-removebg-preview.png";
+        this.eneimage3 = new Image();
+        this.eneimage3.src = "./images/anim-project-removebg-preview.png";
+        this.eneimage1.onload = () => {
+          this.update();
+        };
+        this.eneimage2.onload = () => {
+          this.update();
+        };
+        this.eneimage3.onload = () => {
+          this.update();
+        };
+        
       }
 
-      start();
-      enemys();
-    };
-    function enemys() {
-      let imgs = new Image();
-      imgs.src = "./images/anim-project-removebg-preview.png";
-      imgs.onload = () => cont.drawImage(imgs, ex, ey, 150, 150);
+      update() {
+        if (this.eneimage1) {
+          cont.drawImage(
+            this.eneimage1,
+            this.ex,
+            this.ey,
+            this.eneimage1.width / this.scale,
+            this.eneimage1.height / this.scale
+          );
+        }
+        if (this.eneimage2) {
+          cont.drawImage(
+            this.eneimage2,
+            this.ex,
+            this.ey,
+            this.eneimage2.width / this.scale,
+            this.eneimage2.height / this.scale
+          );
+        }
+        if (this.eneimage3) {
+          cont.drawImage(
+            this.eneimage3,
+            this.ex,
+            this.ey,
+            this.eneimage3.width / this.scale,
+            this.eneimage3.height / this.scale
+          );
+        }
+      }
     }
-    enemys();
-    //   function Image(img1) {
-    //     this.img1 = img1;
-    //     // this.img2 = img2;
-    //     // this.img3 = img3;
-    //     // this.getSummary = function () {
-    //     //  return `${this.title} was written by ${this.author} in ${this.year}`;
-    //     // };
-    //   }
-    //   //instatiate an object
-    //   let i = new Image();
 
-    //       console.log(book5.getSummary());
-    //
+    const rect = new enemys(1150, 59, 3);
+    const rects = new enemys(1150, 0, 6);
+    const rectss = new enemys(1150, 400, 5);
+    window.onkeydown = function (e) {
+      if (e.keyCode == 37) {
+        cont.clearRect(0, 0, 1345, 640);
+        rect.ex -= 5;
+        rects.ex -= 5;
+        rectss.ex -= 5;
+        rect.update();
+        rects.update();
+        rectss.update();
+      }
+    };
   </script>
 </html>
