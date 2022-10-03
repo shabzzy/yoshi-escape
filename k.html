@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* * {
+        padding: 0;
+        margin: 0;
+      } */
+    </style>
+  </head>
+  <body>
+    <canvas
+      id="canvas"
+      width="1345"
+      height="640"
+      style="background-color: black"
+    ></canvas>
+  </body>
+  <script>
+    let x = 10;
+    let y = 290;
+    let ex = 1240;
+    let ey = 280;
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+    let enemy = document.getElementById("canvas");
+    let cont = enemy.getContext("2d");
+
+    // function start() {
+    //   //  context.fillRect(x,y,50,50)
+    //   let img = new Image();
+    //   img.src = "./images/improvedanime.png";
+    //   img.onload = () => context.drawImage(img, x, y, 100, 100);
+    //   window.onkeydown = function (e) {
+    //     // alert(e.keyCode)
+    //     if (e.keyCode == 39 && x !== 1300) {
+    //       x = x + 10;
+    //       console.log("done");
+    //     }
+    //     if (e.keyCode == 40) {
+    //       y = y + 10;
+    //     }
+    //     if (e.keyCode == 37 && x !== 0) {
+    //       x = x - 10;
+    //     }
+    //     if (e.keyCode == 38) {
+    //       y = y - 10;
+    //     }
+
+    //     context.clearRect(0, 0, 1345, 640);
+    //     // if (x==1340) {
+    //     //   x=0
+    //     // }
+    //     if (x == 1270) {
+    //       x = 0;
+    //     } else if (x == 0) {
+    //       x = 1270;
+    //     }
+    //     if (y == -50) {
+    //       y = 610;
+    //     } else if (y == 610) {
+    //       y = -50;
+    //     }
+
+    //     context.drawImage(img, x, y, 100, 100);
+    //     // enemys();
+    //   };
+    // }
+    // start();
+
+    class actor {
+      constructor(x, y, scale) {
+        this.scale = scale;
+        this.x = x;
+        this.y = y;
+        this.img = new Image();
+        this.img.src = "./images/improvedanime.png";
+
+        this.img.onload = () => {
+          this.pdate();
+        };
+      }
+
+      pdate() {
+        if (this.img) {
+          cont.drawImage(
+            this.img,
+            this.x,
+            this.y,
+            this.img.width / this.scale,
+            this.img.height / this.scale
+          );
+        }
+      }
+    }
+
+    const acimg = new actor(0, 250, 5);
+    //direcion of the mainCharacter onkey of arrow button
+    window.onkeydown = function (e) {
+      context.clearRect(0, 0, 1345, 640);
+      if (e.keyCode == 39) {
+        acimg.x += 10;
+      }
+      if (e.keyCode == 40) {
+        acimg.y += 10;
+      }
+      if (e.keyCode == 37 && x !== 0) {
+        acimg.x -= 10;
+      }
+      if (e.keyCode == 38) {
+        acimg.y -=10;
+      }
+      //mainCharacter entering the wall and returning
+      
+      acimg.pdate();
+      rect.update();
+      rects.update();
+      rectss.update();
+      if (acimg.x == 1270) {
+          acimg.x = 0;
+        } else if (acimg.x == 0) {
+          acimg.x = 1270;
+        }
+        if (acimg.y == -50) {
+          acimg.y = 610;
+        } else if (acimg.y == 610) {
+          acimg.y = -50;
+        }
+        meet()
+    };
+    class enemys {
+      constructor(ex, ey, scale) {
+        this.scale = scale;
+        this.ex = ex;
+        this.ey = ey;
+        this.eneimage1 = new Image();
+        this.eneimage1.src = "./images/anim-project-removebg-preview.png";
+        this.eneimage2 = new Image();
+        this.eneimage2.src = "./images/anim-project-removebg-preview.png";
+        this.eneimage3 = new Image();
+        this.eneimage3.src = "./images/anim-project-removebg-preview.png";
+        this.eneimage1.onload = () => {
+          this.update();
+        };
+        this.eneimage2.onload = () => {
+          this.update();
+        };
+        this.eneimage3.onload = () => {
+          this.update();
+        };
+      }
+
+      update() {
+        if (this.eneimage1) {
+          cont.drawImage(
+            this.eneimage1,
+            this.ex,
+            this.ey,
+            this.eneimage1.width / this.scale,
+            this.eneimage1.height / this.scale
+          );
+        }
+        if (this.eneimage2) {
+          cont.drawImage(
+            this.eneimage2,
+            this.ex,
+            this.ey,
+            this.eneimage2.width / this.scale,
+            this.eneimage2.height / this.scale
+          );
+        }
+        if (this.eneimage3) {
+          cont.drawImage(
+            this.eneimage3,
+            this.ex,
+            this.ey,
+            this.eneimage3.width / this.scale,
+            this.eneimage3.height / this.scale
+          );
+        }
+      }
+    }
+
+    const rect = new enemys(1150, 0, 3);
+    const rects = new enemys(1150, 100, 3);
+    const rectss = new enemys(1150, 200, 3);
+    timer = setInterval(() => {
+      cont.clearRect(0, 0, 1345, 640);
+      rect.ex -= 10;
+      rects.ex -= 20;
+      rectss.ex -= 15;
+      if (rect.ex == 0) {
+        rect.ex = 1270;
+      }
+      if (rects.ex == 0) {
+        rects.ex = 1270;
+      }
+      if (rectss.ex == 0) {
+        rectss.ex = 1270;
+      }
+      rect.update();
+      rects.update();
+      rectss.update();
+      acimg.pdate();
+      meet()
+    }, 500);
+    function meet(){
+      if (acimg.x==rect.ex){ 
+        alert ('game over')
+    } 
+      if (acimg.x==rects.ex){ 
+        alert ('game over')
+    } 
+      if (acimg.x==rectss.ex){ 
+        alert ('game over')
+    } 
+  }
+  </script>
+</html>
