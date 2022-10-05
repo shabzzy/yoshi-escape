@@ -2,7 +2,7 @@ let x = 10;
 let y = 290;
 let ex = 1240;
 let ey = 280;
-let audio = document.getElementById("foobar");
+let audio = document.getElementById("sound");
 
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
