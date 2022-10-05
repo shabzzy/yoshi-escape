@@ -234,7 +234,7 @@ timer = setInterval(() => {
   villian4.update();
   villian5.update();
   character.pdate();
-}, 500);
+}, 50);
 function meet() {
   // console.log(rect.ey);
   if (character.x == villian1.ex && character.y == villian1.ey) {
