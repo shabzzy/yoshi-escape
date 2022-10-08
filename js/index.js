@@ -228,7 +228,7 @@ function meet() {
     console.log(userScore);
     cont.fillText("Your Score is " + userScore, 600, 400);
     cont.fillText("Press F5 to restart", 600, 450);
-
+  }
   //   localStorage.setItem("score", userScore);
   //   console.log(localStorage.getItem("score"));
   //   console.log(userScore);
