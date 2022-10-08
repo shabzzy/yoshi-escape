@@ -9,17 +9,25 @@
   </head>
 
   <body>
-    <canvas
+    <div class="container">
+      <div class="game">
+        <div class="game__canvas">
+          <canvas id="canvas" width="1345" height="640"></canvas>
+        </div>
+        <div class="game__score">
+          <h1>Score: <span id="score">0</span></h1>
+        </div>
+      </div>
+  </div>
+
+    <!-- <canvas
       id="canvas"
       width="1345"
       height="640"
       style="background-color: black"
-    ></canvas>
-    <audio
-      id="sound"
-      src="./sound/Spazzmatica-Polka.mp3"
-      preload="auto"
-    ></audio>
+    ></canvas> -->
+
+    <audio id="sound" src="./sound/Spazzmatica-Polka.mp3" autoplay loop></audio>
   </body>
   <script src="./js/index.js"></script>
 </html>
