@@ -12,15 +12,16 @@ let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 let enemy = document.getElementById("canvas");
 let cont = enemy.getContext("2d");
+let play = document.getElementById("play");
 
 // let user = prompt("Enter your name");
-let score = document.getElementById("score");
-let score1 = 0;
-let score2 = 0;
-let score3 = 0;
-let score4 = 0;
-let score5 = 0;
-let score6 = 0;
+// let score = document.getElementById("score");
+// let score1 = 0;
+// let score2 = 0;
+// let score3 = 0;
+// let score4 = 0;
+// let score5 = 0;
+// let score6 = 0;
 // mainCharacter
 class mainCharacter {
   constructor(x, y, scale) {
@@ -225,6 +226,7 @@ function meet() {
     cont.font = "30px Arial";
     cont.fillStyle = "red";
     userScore = score;
+    score 
     console.log(userScore);
     cont.fillText("Your Score is " + userScore, 600, 400);
     cont.fillText("Press F5 to restart", 600, 450);
@@ -270,6 +272,7 @@ function meet() {
     cont.font = "30px Arial";
     cont.fillStyle = "red";
     cont.fillText("Press F5 to restart", 600, 350);
+    
   }
   if (
     character.x < villian4.ex + villian4.width &&
