@@ -126,6 +126,23 @@ img {
   border: none;
   border-radius: 10px;
 }
+.date{
+  font-family: Yellowtail;
+  font-size: 20px;
+  color: white;
+}
+.name_initials{
+  font-family: Yellowtail;
+  font-size: 20px;
+  color: white;
+  width: 100px;
+  height: 30px;
+  background-color: #ff0000;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 90%;
+}
 /* .container div{
   width: 300px;
   height: 300px;
