@@ -13,8 +13,9 @@ let context = canvas.getContext("2d");
 let enemy = document.getElementById("canvas");
 let cont = enemy.getContext("2d");
 let score = 0;
+let lives = 3;
 
-let scroreTimer = setInterval(() => {
+let scoreTimer = setInterval(() => {
   score++;
 }, 1000);
 // mainCharacter
@@ -202,112 +203,7 @@ timer = setInterval(() => {
   meet();
 }, 60);
 
-// function meet() {
-//   if (
-//     character.x < villian1.ex + villian1.width &&
-//     character.x + w > villian1.ex &&
-//     character.y < villian1.ey + villian1.height &&
-//     h + character.y > villian1.ey
-//   ) {
-//     clearInterval(timer);
-
-//     audio.pause();
-//     audio.currentTime = 0;
-//     audio1.play();
-//     cont.clearRect(0, 0, 1345, 640);
-//     cont.font = "50px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Game Over", 600, 300);
-//     cont.font = "30px Arial";
-//     cont.fillStyle = "red";
-//     userScore = score;
-//     score;
-//     // console.log(userScore);
-//     cont.fillText("Your Score is " + userScore, 600, 400);
-//     cont.fillText("Press F5 to restart", 600, 450);
-//   }
-//   //   localStorage.setItem("score", userScore);
-//   //   console.log(localStorage.getItem("score"));
-//   //   console.log(userScore);
-//   //   // cont.fillText("Your Score is " + score, 600, 400);
-//   //   cont.fillText("Press F5 to restart", 600, 450);
-//   // }
-//   if (
-//     character.x < villian2.ex + villian2.width &&
-//     character.x + w > villian2.ex &&
-//     character.y < villian2.ey + villian2.height &&
-//     h + character.y > villian2.ey
-//   ) {
-//     clearInterval(timer);
-//     audio.pause();
-//     audio.currentTime = 0;
-//     audio1.play();
-//     cont.clearRect(0, 0, 1345, 640);
-//     cont.font = "50px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Game Over", 600, 300);
-//     cont.font = "30px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Press F5 to restart", 600, 350);
-//   }
-//   if (
-//     character.x < villian3.ex + villian3.width &&
-//     character.x + w > villian3.ex &&
-//     character.y < villian3.ey + villian3.height &&
-//     h + character.y > villian3.ey
-//   ) {
-//     clearInterval(timer);
-//     audio.pause();
-//     audio.currentTime = 0;
-//     audio1.play();
-//     cont.clearRect(0, 0, 1345, 640);
-//     cont.font = "50px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Game Over", 600, 300);
-//     cont.font = "30px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Press F5 to restart", 600, 350);
-//   }
-//   if (
-//     character.x < villian4.ex + villian4.width &&
-//     character.x + w > villian4.ex &&
-//     character.y < villian4.ey + villian4.height &&
-//     h + character.y > villian4.ey
-//   ) {
-//     clearInterval(timer);
-//     audio.pause();
-//     audio.currentTime = 0;
-//     audio1.play();
-//     cont.clearRect(0, 0, 1345, 640);
-//     cont.font = "50px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Game Over", 600, 300);
-//     cont.font = "30px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Press F5 to restart", 600, 350);
-//   }
-
-//   if (
-//     character.x < villian5.ex + villian5.width &&
-//     character.x + w > villian5.ex &&
-//     character.y < villian5.ey + villian5.height &&
-//     h + character.y > villian5.ey
-//   ) {
-//     clearInterval(timer);
-//     audio.pause();
-//     audio.currentTime = 0;
-//     audio1.play();
-//     cont.clearRect(0, 0, 1345, 640);
-//     cont.font = "50px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Game Over", 600, 300);
-//     cont.font = "30px Arial";
-//     cont.fillStyle = "red";
-//     cont.fillText("Press F5 to restart", 600, 350);
-//   }
-// }
-
-//make bullet shoot enemy and enemy shoot bullet
+//make lives decrease when enemy touches character
 function meet() {
   if (
     character.x < villian1.ex + villian1.width &&
@@ -315,20 +211,9 @@ function meet() {
     character.y < villian1.ey + villian1.height &&
     h + character.y > villian1.ey
   ) {
+    lives--;
     villian1.ex = 1150;
-    clearInterval(scroreTimer);
-    clearInterval(timer);
-    audio.pause();
-    audio.currentTime = 0;
-    audio1.play();
-    cont.clearRect(0, 0, 1345, 600);
-    cont.font = "50px Arial";
-    cont.fillStyle = "red";
-    cont.fillText("Game Over", 600, 300);
-    cont.font = "30px Arial";
-    cont.fillStyle = "red";
-    cont.fillText("Press F5 to restart", 600, 350);
-    // console.log(score);
+    // console.log(lives);
   }
   if (
     character.x < villian2.ex + villian2.width &&
@@ -336,21 +221,9 @@ function meet() {
     character.y < villian2.ey + villian2.height &&
     h + character.y > villian2.ey
   ) {
+    lives--;
     villian2.ex = 1150;
-    clearInterval(scroreTimer);
-    clearInterval(scroreTimer);
-    clearInterval(timer);
-    audio.pause();
-    audio.currentTime = 0;
-    audio1.play();
-    cont.clearRect(0, 0, 1345, 600);
-    cont.font = "50px Arial";
-    cont.fillStyle = "red";
-    cont.fillText("Game Over", 600, 300);
-    cont.font = "30px Arial";
-    cont.fillStyle = "red";
-    cont.fillText("Press F5 to restart", 600, 350);
-    // console.log(score);
+    // console.log(lives);
   }
   if (
     character.x < villian3.ex + villian3.width &&
@@ -358,21 +231,9 @@ function meet() {
     character.y < villian3.ey + villian3.height &&
     h + character.y > villian3.ey
   ) {
+    lives--;
     villian3.ex = 1150;
-    clearInterval(scroreTimer);
-    clearInterval(scroreTimer);
-    clearInterval(timer);
-    audio.pause();
-    audio.currentTime = 0;
-    audio1.play();
-    cont.clearRect(0, 0, 1345, 600);
-    cont.font = "50px Arial";
-    cont.fillStyle = "red";
-    cont.fillText("Game Over", 600, 300);
-    cont.font = "30px Arial";
-    cont.fillStyle = "red";
-    cont.fillText("Press F5 to restart", 600, 350);
-    // console.log(score);
+    // console.log(lives);
   }
   if (
     character.x < villian4.ex + villian4.width &&
@@ -380,21 +241,9 @@ function meet() {
     character.y < villian4.ey + villian4.height &&
     h + character.y > villian4.ey
   ) {
+    lives--;
     villian4.ex = 1150;
-    clearInterval(scroreTimer);
-    clearInterval(scroreTimer);
-    clearInterval(timer);
-    audio.pause();
-    audio.currentTime = 0;
-    audio1.play();
-    cont.clearRect(0, 0, 1345, 600);
-    cont.font = "50px Arial";
-    cont.fillStyle = "red";
-    cont.fillText("Game Over", 600, 300);
-    cont.font = "30px Arial";
-    cont.fillStyle = "red";
-    cont.fillText("Press F5 to restart", 600, 350);
-    // console.log(score);
+    // console.log(lives);
   }
   if (
     character.x < villian5.ex + villian5.width &&
@@ -402,9 +251,18 @@ function meet() {
     character.y < villian5.ey + villian5.height &&
     h + character.y > villian5.ey
   ) {
+    lives--;
     villian5.ex = 1150;
-    clearInterval(scroreTimer);
-    clearInterval(scroreTimer);
+    // console.log(lives);
+  }
+  // console.log(lives);
+  {
+    cont.font = "30px Arial";
+    cont.fillStyle = "red";
+    cont.fillText("Lives: " + lives, 100, 50);
+  }
+  if (lives == 0) {
+    clearInterval(scoreTimer);
     clearInterval(timer);
     audio.pause();
     audio.currentTime = 0;
@@ -416,14 +274,13 @@ function meet() {
     cont.font = "30px Arial";
     cont.fillStyle = "red";
     cont.fillText("Press F5 to restart", 600, 350);
+    cont.fillText("Your Score is " + score, 600, 400);
     // console.log(score);
   }
-  // console.log(score);
   {
     cont.font = "30px Arial";
     cont.fillStyle = "red";
     cont.fillText("Score: " + score, 600, 50);
-    // cont.fillText("Your Score is " + score, 600, 400);
-    // cont.fillText("Press F5 to restart", 600, 450);
+    localStorage.setItem("score", score);
   }
 }

@@ -5,7 +5,7 @@ let otherGames = document.getElementById("other");
 
 play.addEventListener("click", function () {
  
-  window.location.href = "mainPage.html";
+  window.location.href = "Username.html";
   
 });
 store.addEventListener("click", function () {
