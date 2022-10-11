@@ -4,30 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Yoshi Game</title>
+    <title>Yoshi Escape</title>
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      @font-face {
+        font-family: yellowtail;
+        src: url(./Yellowtail/Yellowtail-Regular.ttf);
+      }
+    </style>
   </head>
-
   <body>
-    <div class="container">
-      <div class="game">
-        <div class="game__canvas">
-          <canvas id="canvas" width="1345" height="640"></canvas>
+    <div class="container-fluid">
+      <div class="details">
+      <img  src="./images/improvedanime.png" alt="">
+        <h1 class="game_name"> YOSHI <br> ESCAPE</h1>
+        <div class="buttons">
+         <button class="btn btn-primary" id="play">PLAY</button><br>
+          <button class="btn btn-primary" id="about">ABOUT</button>
+          <button class="btn btn-primary" id="store">STORE</button>
+          <button class="btn btn-primary" id="other">OTHER GAMES</button>
         </div>
-        <div class="game__score">
-          <h1>Score: <span id="score">0</span></h1>
-        </div>
-      </div>
-  </div>
-
-    <!-- <canvas
-      id="canvas"
-      width="1345"
-      height="640"
-      style="background-color: black"
-    ></canvas> -->
-
-    <audio id="sound" src="./sound/Spazzmatica-Polka.mp3" autoplay loop></audio>
+        <button class="share"><i class="fa-sharp fa-solid fa-share-nodes"></i></button>
+        <button class="gear"><i class="fa-sharp fa-solid fa-gear"></i></button>
+        <button class="trophy"><i class="fa-solid fa-trophy"></i></button>
+        <button class="video"><i class="fa-solid fa-video"></i></button>
+        <button class="google"><i class="fa-brands fa-google-play"></i></button>
+        <p class="date">Created:10/10/2022  </p>
+        <p class="name_initials">SWEED</p>
+    </div>
   </body>
   <script src="./js/index.js"></script>
 </html>
