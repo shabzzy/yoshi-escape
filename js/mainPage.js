@@ -7,7 +7,7 @@ let ex = 1240;
 let ey = 280;
 let audio = document.getElementById("sound");
 let audio1 = new Audio();
-audio1.src = "./sound/explosion.mp3";
+audio1.src = "../sound/explosion.mp3";
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 let enemy = document.getElementById("canvas");
@@ -25,7 +25,7 @@ class mainCharacter {
     this.x = x;
     this.y = y;
     this.img = new Image();
-    this.img.src = "./images/improvedanime.png";
+    this.img.src = "../images/improvedanime.png";
 
     this.img.onload = () => {
       this.pdate();
@@ -49,16 +49,17 @@ const character = new mainCharacter(0, 250, 5);
 //direcion of the mainCharacter onkey of arrow button
 window.onkeydown = function (e) {
   context.clearRect(0, 0, 1345, 640);
-  if (e.keyCode == 39) {
+  if (e.keyCode == 39 && character.x !== 1300) {
     character.x += 10;
   }
-  if (e.keyCode == 40) {
+  if (e.keyCode == 40 && character.y !== 530) {
     character.y += 10;
+    console.log(character.y);
   }
-  if (e.keyCode == 37) {
+  if (e.keyCode == 37 && character.x !== 0) {
     character.x -= 10;
   }
-  if (e.keyCode == 38) {
+  if (e.keyCode == 38 && character.y !== 0) {
     character.y -= 10;
   }
   //mainCharacter entering the wall and returning
@@ -70,16 +71,16 @@ window.onkeydown = function (e) {
   villian3.update();
   villian4.update();
   villian5.update();
-  if (character.x == 1270) {
-    character.x = -10;
-  } else if (character.x == -10) {
-    character.x = 1270;
-  }
-  if (character.y == -50) {
-    character.y = 610;
-  } else if (character.y == 610) {
-    character.y = -50;
-  }
+  // if (character.x == 1270) {
+  //   character.x = -10;
+  // } else if (character.x == -10) {
+  //   character.x = 1270;
+  // }
+  // if (character.y == -50) {
+  //   character.y = 610;
+  // } else if (character.y == 610) {
+  //   character.y = -50;
+  // }
   meet();
 };
 
@@ -89,15 +90,15 @@ class enemys {
     (this.width = width), (this.height = height), (this.ex = ex);
     this.ey = ey;
     this.enemyimage1 = new Image();
-    this.enemyimage1.src = "./images/anim-project-removebg-preview.png";
+    this.enemyimage1.src = "../images/anim-project-removebg-preview.png";
     this.enemyimage2 = new Image();
-    this.enemyimage2.src = "./images/anim-project-removebg-preview.png";
+    this.enemyimage2.src = "../images/anim-project-removebg-preview.png";
     this.enemyimage3 = new Image();
-    this.enemyimage3.src = "./images/anim-project-removebg-preview.png";
+    this.enemyimage3.src = "../images/anim-project-removebg-preview.png";
     this.enemyimage4 = new Image();
-    this.enemyimage4.src = "./images/anim-project-removebg-preview.png";
+    this.enemyimage4.src = "../images/anim-project-removebg-preview.png";
     this.enemyimage5 = new Image();
-    this.enemyimage5.src = "./images/anim-project-removebg-preview.png";
+    this.enemyimage5.src = "../images/anim-project-removebg-preview.png";
     this.enemyimage1.onload = () => {
       this.update();
     };
@@ -203,6 +204,8 @@ timer = setInterval(() => {
   meet();
 }, 60);
 
+
+
 //make lives decrease when enemy touches character
 function meet() {
   if (
@@ -257,30 +260,34 @@ function meet() {
   }
   // console.log(lives);
   {
-    cont.font = "30px Arial";
+    cont.font = "30px yellowtail";
     cont.fillStyle = "red";
     cont.fillText("Lives: " + lives, 100, 50);
   }
-  if (lives == 0) {
+  if (lives == 0 || score==10) {
     clearInterval(scoreTimer);
-    clearInterval(timer);
+    // clearInterval(timer);
     audio.pause();
     audio.currentTime = 0;
     audio1.play();
     cont.clearRect(0, 0, 1345, 600);
-    cont.font = "50px Arial";
+    cont.font = "50px yellowtail";
     cont.fillStyle = "red";
-    cont.fillText("Game Over", 600, 300);
-    cont.font = "30px Arial";
+    score==10 ?cont.fillText("Level 1 complete", 600, 300):cont.fillText("Game Over", 600, 300);
+    cont.font = "30px yellowtail";
     cont.fillStyle = "red";
     cont.fillText("Press F5 to restart", 600, 350);
     cont.fillText("Your Score is " + score, 600, 400);
     // console.log(score);
   }
   {
-    cont.font = "30px Arial";
+    cont.font = "30px yellowtail";
     cont.fillStyle = "red";
     cont.fillText("Score: " + score, 600, 50);
-    localStorage.setItem("score", score);
   }
-}
+    
+  }
+  
+
+//make level 1 complete when score reaches 100
+

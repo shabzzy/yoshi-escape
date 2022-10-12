@@ -92,7 +92,6 @@
         this.eneimage3.onload = () => {
           this.update();
         };
-        
       }
 
       update() {
@@ -129,25 +128,24 @@
     const rect = new enemys(1150, 59, 3);
     const rects = new enemys(1150, 0, 3);
     const rectss = new enemys(1150, 400, 3);
-    timer=setInterval( ()=> {
-      
-        cont.clearRect(0, 0, 1345, 640);
-        rect.ex -= 10;
-        rects.ex -= 20;
-        rectss.ex -= 15;
-        if (rect.ex == 0) {
-          rect.ex = 1270;
-        }
-        if (rects.ex == 0) {
-          rects.ex = 1270;
-        }
-        if (rectss.ex == 0) {
-          rectss.ex = 1270;
-        }
-        rect.update();
-        rects.update();
-        rectss.update();
-        start()
-    },500);
+    timer = setInterval(() => {
+      cont.clearRect(0, 0, 1345, 640);
+      rect.ex -= 10;
+      rects.ex -= 20;
+      rectss.ex -= 15;
+      if (rect.ex == 0) {
+        rect.ex = 1270;
+      }
+      if (rects.ex == 0) {
+        rects.ex = 1270;
+      }
+      if (rectss.ex == 0) {
+        rectss.ex = 1270;
+      }
+      rect.update();
+      rects.update();
+      rectss.update();
+      start();
+    }, 500);
   </script>
 </html>

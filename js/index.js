@@ -4,9 +4,7 @@ let store = document.getElementById("store");
 let otherGames = document.getElementById("other");
 
 play.addEventListener("click", function () {
- 
   window.location.href = "Username.html";
-  
 });
 store.addEventListener("click", function () {
   window.location.href =
