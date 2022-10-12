@@ -14,10 +14,9 @@ let enemy = document.getElementById("canvas");
 let cont = enemy.getContext("2d");
 let score = 0;
 let lives = 3;
-
-let scoreTimer = setInterval(() => {
-  score++;
-}, 1000);
+// let Username = JSON.parse(window.localStorage.getItem("userName"))
+// let show = (document.getElementById("write2").innerHTML =
+//   "PLAYER" + ":" + `<span style="font-size: 20px;">${Username[0].name}</span>`);
 // mainCharacter
 class mainCharacter {
   constructor(x, y, scale) {
@@ -204,8 +203,6 @@ timer = setInterval(() => {
   meet();
 }, 60);
 
-
-
 //make lives decrease when enemy touches character
 function meet() {
   if (
@@ -264,20 +261,19 @@ function meet() {
     cont.fillStyle = "red";
     cont.fillText("Lives: " + lives, 100, 50);
   }
-  if (lives == 0 || score==10) {
+  if (lives == 0) {
     clearInterval(scoreTimer);
-    // clearInterval(timer);
+    clearInterval(timer);
     audio.pause();
     audio.currentTime = 0;
     audio1.play();
-    cont.clearRect(0, 0, 1345, 600);
-    cont.font = "50px yellowtail";
-    cont.fillStyle = "red";
-    score==10 ?cont.fillText("Level 1 complete", 600, 300):cont.fillText("Game Over", 600, 300);
+    cont.clearRect(0, 0, 1345, 640);
     cont.font = "30px yellowtail";
     cont.fillStyle = "red";
-    cont.fillText("Press F5 to restart", 600, 350);
-    cont.fillText("Your Score is " + score, 600, 400);
+    cont.fillText("Game Over", 600, 300);
+    cont.fillText("Score: " + score, 600, 350);
+    return;
+
     // console.log(score);
   }
   {
@@ -285,9 +281,106 @@ function meet() {
     cont.fillStyle = "red";
     cont.fillText("Score: " + score, 600, 50);
   }
-    
+  if (score == 10) {
+    console.log(level);
+    cont.font = "30px yellowtail";
+    cont.fillStyle = "red";
+    cont.fillText("Level 2", 600, 100);
   }
-  
+  if (score == 20) {
+    level = 3;
+    console.log(level);
+    cont.font = "30px yellowtail";
+    cont.fillStyle = "red";
+    cont.fillText("Level 3", 600, 100);
+  }
+  if (score == 30) {
+    level = 4;
+    console.log(level);
+    cont.font = "30px yellowtail";
+    cont.fillStyle = "red";
+    cont.fillText("Level 4", 600, 100);
+  }
+  if (score == 40) {
+    level = 5;
+    console.log(level);
+    cont.font = "30px yellowtail";
+    cont.fillStyle = "red";
+    cont.fillText("Level 5", 600, 100);
+  }
+  if (score == 50) {
+    level = 6;
+    console.log(level);
+    cont.font = "30px yellowtail";
+    cont.fillStyle = "red";
+    cont.fillText("Level 6", 600, 100);
+  }
+}
+let scoreTimer = setInterval(() => {
+  score++;
+}, 1000);
+//make game pause when spacebar is pressed and unpause when spacebar is pressed again
 
-//make level 1 complete when score reaches 100
+document.addEventListener("keydown", (event) => {
+  if (event.keyCode == 32) {
+    if (timer) {
+      clearInterval(timer);
+      clearInterval(scoreTimer);
 
+      timer = null;
+      scoreTimer = null;
+
+      audio.pause();
+
+      audio.currentTime = 0;
+      audio1.play();
+      context.clearRect(0, 0, 1345, 640);
+      context.font = "30px yellowtail";
+      context.fillStyle = "red";
+      context.fillText("Game Paused", 600, 300);
+      context.fillText("Score: " + score, 600, 350);
+
+      // cont.clearRect(0, 0, 1345, 640);
+      // cont.font = "30px yellowtail";
+      // cont.fillStyle = "red";
+      // cont.fillText("Game Paused", 600, 300);
+      // cont.fillText("Score: " + score, 600, 350);
+    } else {
+      timer = setInterval(() => {
+        cont.clearRect(0, 0, 1345, 640);
+        villian1.ex -= 10;
+        villian2.ex -= 20;
+        villian3.ex -= 15;
+        villian4.ex -= 15;
+        villian5.ex -= 25;
+        // console.log(rectssss.ex);
+        // log(villian5.ex);
+        if (villian1.ex == 0) {
+          villian1.ex = 1150;
+        }
+        if (villian2.ex == -50) {
+          villian2.ex = 1150;
+        }
+        if (villian3.ex == -20) {
+          villian3.ex = 1150;
+        }
+        if (villian4.ex == -35) {
+          villian4.ex = 1150;
+        }
+        if (villian5.ex == -25) {
+          villian5.ex = 1150;
+        }
+        character.pdate();
+        villian1.update();
+        villian2.update();
+        villian3.update();
+        villian4.update();
+        villian5.update();
+        meet();
+      }, 60);
+      scoreTimer = setInterval(() => {
+        score++;
+      }, 1000);
+    }
+  }
+});
