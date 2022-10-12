@@ -7,7 +7,7 @@ let ex = 1240;
 let ey = 280;
 let audio = document.getElementById("sound");
 let audio1 = new Audio();
-audio1.src = "../sound/explosion.mp3";
+audio1.src = "./sound/explosion.mp3";
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
 let enemy = document.getElementById("canvas");
@@ -24,7 +24,7 @@ class mainCharacter {
     this.x = x;
     this.y = y;
     this.img = new Image();
-    this.img.src = "../images/improvedanime.png";
+    this.img.src = "./images/improvedanime.png";
 
     this.img.onload = () => {
       this.pdate();
@@ -89,15 +89,15 @@ class enemys {
     (this.width = width), (this.height = height), (this.ex = ex);
     this.ey = ey;
     this.enemyimage1 = new Image();
-    this.enemyimage1.src = "../images/anim-project-removebg-preview.png";
+    this.enemyimage1.src = "./images/anim-project-removebg-preview.png";
     this.enemyimage2 = new Image();
-    this.enemyimage2.src = "../images/anim-project-removebg-preview.png";
+    this.enemyimage2.src = "./images/anim-project-removebg-preview.png";
     this.enemyimage3 = new Image();
-    this.enemyimage3.src = "../images/anim-project-removebg-preview.png";
+    this.enemyimage3.src = "./images/anim-project-removebg-preview.png";
     this.enemyimage4 = new Image();
-    this.enemyimage4.src = "../images/anim-project-removebg-preview.png";
+    this.enemyimage4.src = "./images/anim-project-removebg-preview.png";
     this.enemyimage5 = new Image();
-    this.enemyimage5.src = "../images/anim-project-removebg-preview.png";
+    this.enemyimage5.src = "./images/anim-project-removebg-preview.png";
     this.enemyimage1.onload = () => {
       this.update();
     };
