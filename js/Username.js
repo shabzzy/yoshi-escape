@@ -39,8 +39,8 @@ start.addEventListener("click", function () {
       modal.style.display = "none";
     }
   };
-  user.value=''
-    localStorage.setItem('userName', JSON.stringify(Username))
+  // user.value=''
+  //   localStorage.setItem('userName', JSON.stringify(Username))
     
 });
 
