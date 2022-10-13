@@ -282,11 +282,13 @@ function meet() {
     cont.fillText("Score: " + score, 600, 50);
   }
   if (score == 10) {
-    console.log(level);
+   level =2
     cont.font = "30px yellowtail";
     cont.fillStyle = "red";
     cont.fillText("Level 2", 600, 100);
+    document.getElementById("canvas").style.backgroundImage = "url(./bgimg/are examples of pixel art from the Last Blade series of video games.gif)";
   }
+  
   if (score == 20) {
     level = 3;
     console.log(level);
@@ -334,11 +336,11 @@ document.addEventListener("keydown", (event) => {
 
       audio.currentTime = 0;
       audio1.play();
-      context.clearRect(0, 0, 1345, 640);
-      context.font = "30px yellowtail";
-      context.fillStyle = "red";
-      context.fillText("Game Paused", 600, 300);
-      context.fillText("Score: " + score, 600, 350);
+      cont.clearRect(0, 0, 1345, 640);
+      cont.font = "30px yellowtail";
+      cont.fillStyle = "red";
+      cont.fillText("Game Paused", 600, 300);
+      cont.fillText("Score: " + score, 600, 350);
 
       // cont.clearRect(0, 0, 1345, 640);
       // cont.font = "30px yellowtail";
