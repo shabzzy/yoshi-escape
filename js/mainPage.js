@@ -14,11 +14,11 @@ let enemy = document.getElementById("canvas");
 let cont = enemy.getContext("2d");
 let score = 0;
 let lives = 3;
-let Username = JSON.parse(window.localStorage.getItem("userName"))
-console.log(Username[0].name)
-let show = document.getElementById("write2").innerHTML =
-  "PLAYER" + ":" + `<span style="font-size: 20px;">${Username[0].name}</span>`;
-// mainCharacter
+// let Username = JSON.parse(window.localStorage.getItem("userName"));
+// console.log(Username[0].name);
+// let show = (document.getElementById("write2").innerHTML =
+//   "PLAYER" + ":" + `<span style="font-size: 20px;">${Username[0].name}</span>`);
+// // mainCharacter
 class mainCharacter {
   constructor(x, y, scale) {
     this.scale = scale;
@@ -111,9 +111,9 @@ class enemys {
     this.enemyimage4.onload = () => {
       this.update();
     };
-    // this.enemyimage5.onload = () => {
-    //   this.update();
-    // };
+    this.enemyimage5.onload = () => {
+      this.update();
+    };
   }
 
   update() {
@@ -283,13 +283,14 @@ function meet() {
     cont.fillText("Score: " + score, 600, 50);
   }
   if (score == 10) {
-   level =2
+    level = 2;
     cont.font = "30px yellowtail";
     cont.fillStyle = "red";
     cont.fillText("Level 2", 600, 100);
-    document.getElementById("canvas").style.backgroundImage = "url(./bgimg/are examples of pixel art from the Last Blade series of video games.gif)";
+    document.getElementById("canvas").style.backgroundImage =
+      "url(./bgimg/are examples of pixel art from the Last Blade series of video games.gif)";
   }
-  
+
   if (score == 20) {
     level = 3;
     console.log(level);
