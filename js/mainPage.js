@@ -14,9 +14,10 @@ let enemy = document.getElementById("canvas");
 let cont = enemy.getContext("2d");
 let score = 0;
 let lives = 3;
-// let Username = JSON.parse(window.localStorage.getItem("userName"))
-// let show = (document.getElementById("write2").innerHTML =
-//   "PLAYER" + ":" + `<span style="font-size: 20px;">${Username[0].name}</span>`);
+let Username = JSON.parse(window.localStorage.getItem("userName"))
+console.log(Username[0].name)
+let show = document.getElementById("write2").innerHTML =
+  "PLAYER" + ":" + `<span style="font-size: 20px;">${Username[0].name}</span>`;
 // mainCharacter
 class mainCharacter {
   constructor(x, y, scale) {
