@@ -153,7 +153,7 @@ img {
 
 } */
 /*make responsive for iphone 6/7/8*/
-@media(max-width: 414px) {
+@media(max-width: 360px) {
   .container-fluid {
     background-image: url(../images/neon-light-arrow-direction-perspective_1017-22033.jpg);
     width: 100%;
@@ -176,7 +176,7 @@ img {
   #play {
     width: 180px;
     height: 50px;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-top: 20px;
     background-color: rgb(158, 157, 69);
     border: none;
@@ -191,7 +191,7 @@ img {
   #about {
     width: 180px;
     height: 50px;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-top: 20px;
     background-color: rgb(78, 190, 93);
     border: none;
@@ -206,7 +206,7 @@ img {
   #store {
     width: 180px;
     height: 50px;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-top: 20px;
     background-color: brown;
     border: none;
@@ -221,7 +221,7 @@ img {
   #other {
     width: 180px;
     height: 50px;
-    margin-left: 30%;
+    margin-left: 25%;
     margin-top: 20px;
     background-color: #ff0000;
     border: none;
@@ -236,7 +236,7 @@ img {
   .share {
     width: 50px;
     height: 40px;
-    margin-left: 10%;
+    margin-left: 4%;
     margin-top: 20px;
     background-color: #f1f1f1;
     border: none;
@@ -295,6 +295,6 @@ img {
     border-radius: 10px;
     text-align: center;
     margin-left: 70%;
-    margin-top: 60px;
+    margin-top: 1px;
   } 
 }
