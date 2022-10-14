@@ -26,8 +26,8 @@ start.addEventListener("click", function () {
       myName = "";
     }
   }, 10000);
-  user.value = "";
-  localStorage.setItem("userName", JSON.stringify(Username));
+  // user.value = "";
+  // localStorage.setItem("userName", JSON.stringify(Username));
   //make modal show onclick of start button
   let modal = document.getElementById("myModal");
   modal.style.display = "block";
